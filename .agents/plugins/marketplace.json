@@ -1,0 +1,20 @@
+{
+  "name": "docs-from-code",
+  "interface": {
+    "displayName": "docs-from-code Marketplace"
+  },
+  "plugins": [
+    {
+      "name": "docs-from-code",
+      "policy": {
+        "authentication": "ON_INSTALL",
+        "installation": "AVAILABLE"
+      },
+      "category": "Developer Tools",
+      "source": {
+        "source": "local",
+        "path": "./"
+      }
+    }
+  ]
+}
