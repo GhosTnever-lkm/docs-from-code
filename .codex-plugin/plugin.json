@@ -1,7 +1,7 @@
 {
   "name": "docs-from-code",
   "version": "1.0.0",
-  "description": "Draft accurate developer documentation by tracing the current implementation and existing conventions.",
+  "description": "Creates or improves developer documentation grounded in current source code and repository conventions.",
   "author": {
     "name": "GhosTnever"
   },
@@ -11,18 +11,18 @@
   "keywords": [
     "codex",
     "developer-tools",
-    "docs-from-code"
+    "documentation"
   ],
   "interface": {
     "displayName": "Docs from Code",
-    "longDescription": "Draft accurate developer documentation by tracing the current implementation and existing conventions.",
+    "longDescription": "Creates or improves developer documentation grounded in current source code and repository conventions.",
     "capabilities": [
       "Read",
       "Write"
     ],
     "developerName": "GhosTnever",
-    "shortDescription": "Draft accurate developer documentation by tracing the current implementation and existing conventions.",
-    "category": "Documentation"
+    "shortDescription": "Source-grounded docs",
+    "category": "Developer Tools"
   },
   "skills": [
     "./skills/docs-from-code"

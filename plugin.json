@@ -1,0 +1,33 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "docs-from-code",
+  "version": "1.0.0",
+  "description": "Create developer documentation grounded in a repository's current source and conventions.",
+  "author": {
+    "name": "GhosTnever"
+  },
+  "homepage": "https://github.com/GhosTnever-lkm/docs-from-code",
+  "repository": "https://github.com/GhosTnever-lkm/docs-from-code",
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "documentation",
+    "developer-tools"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Docs from Code",
+        "shortDescription": "Source-grounded docs",
+        "longDescription": "Create or improve setup guides, architecture notes, and API documentation by tracing claims to the current source, tests, and repository conventions.",
+        "developerName": "GhosTnever",
+        "category": "Developer Tools",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "defaultPrompt": "Document this repository accurately from its current source."
+      }
+    }
+  }
+}
