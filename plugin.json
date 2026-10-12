@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "docs-from-code",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create developer documentation grounded in a repository's current source and conventions.",
   "author": {
     "name": "GhosTnever"

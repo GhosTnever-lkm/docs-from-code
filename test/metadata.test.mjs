@@ -19,18 +19,37 @@ test('portable and Codex compatibility manifests stay aligned', async () => {
 });
 
 test('version, package metadata, changelog, and README agree', async () => {
-  const [version, packageJson, changelog, readme] = await Promise.all([
-    readRepoFile('VERSION'), readJson('../package.json'), readRepoFile('CHANGELOG.md'), readRepoFile('README.md'),
+  const [version, packageJson, portable, codex, changelog, readme] = await Promise.all([
+    readRepoFile('VERSION'), readJson('../package.json'), readJson('../plugin.json'),
+    readJson('../.codex-plugin/plugin.json'), readRepoFile('CHANGELOG.md'), readRepoFile('README.md'),
   ]);
-  const expectedVersion = '1.0.0';
+  const expectedVersion = '1.0.1';
 
   assert.equal(version.trim(), expectedVersion);
   assert.equal(packageJson.version, expectedVersion);
+  assert.equal(portable.version, expectedVersion);
+  assert.equal(codex.version, expectedVersion);
   assert.match(changelog, new RegExp(`^## ${expectedVersion.replaceAll('.', '\\.')} —`, 'm'));
-  assert.match(readme, new RegExp(`Current version: ${expectedVersion.replaceAll('.', '\\.')}`));
+  assert.match(readme, new RegExp(`Current version: \\[${expectedVersion.replaceAll('.', '\\.')}\\]`));
   assert.match(readme, /codex plugin marketplace add GhosTnever-lkm\/docs-from-code/);
   assert.match(readme, /codex plugin add docs-from-code --marketplace docs-from-code/);
   assert.match(readme, /Support \/ Pro Version/);
+});
+
+test('marketplace entry points to this plugin and every declared skill file exists', async () => {
+  const [marketplace, portable, codex] = await Promise.all([
+    readJson('../.agents/plugins/marketplace.json'), readJson('../plugin.json'), readJson('../.codex-plugin/plugin.json'),
+  ]);
+  assert.equal(marketplace.plugins.length, 1);
+  assert.equal(marketplace.plugins[0].name, portable.name);
+  assert.equal(marketplace.plugins[0].source.source, 'local');
+  assert.equal(marketplace.plugins[0].source.path, './');
+  assert.deepEqual(codex.skills, ['./skills/docs-from-code']);
+  for (const skill of codex.skills) {
+    const skillFile = `${skill.replace(/^\.\//, '')}/SKILL.md`;
+    const content = await readRepoFile(skillFile);
+    assert.match(content, /^---\r?\nname: docs-from-code/m);
+  }
 });
 
 test('skill front matter matches the plugin identity and includes a usage description', async () => {

@@ -1,5 +1,9 @@
 # Docs from Code
 
+[![CI](https://github.com/GhosTnever-lkm/docs-from-code/actions/workflows/quality.yml/badge.svg)](https://github.com/GhosTnever-lkm/docs-from-code/actions/workflows/quality.yml)
+[![Version](https://img.shields.io/github/v/release/GhosTnever-lkm/docs-from-code?sort=semver)](https://github.com/GhosTnever-lkm/docs-from-code/releases)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 > Accurate developer documentation grounded in current source code.
 
 ## Install in Codex
@@ -31,6 +35,10 @@ flowchart LR
   D --> E[Report changes and unverified details]
 ```
 
+## Validation
+
+The repository checks its plugin manifests, marketplace entry, skill paths, and version metadata with `npm test`. GitHub Actions runs the suite on Node.js 20 and 22. The plugin itself is a prompt-and-skill package; Node.js is needed only to run its repository checks.
+
 ## ☕ Support / Pro Version
 
 Docs from Code is free and open source. There is no paid Pro edition at this time. You can support GhosTnever on [Boosty](https://boosty.to/azizazimov) or [Buy Me a Coffee](https://www.buymeacoffee.com/azizazimov8).
@@ -52,4 +60,4 @@ Send only the named asset on its matching network.
 
 MIT. See [LICENSE](LICENSE).
 
-Current version: 1.0.0. See [CHANGELOG.md](CHANGELOG.md).
+Current version: [1.0.1](https://github.com/GhosTnever-lkm/docs-from-code/releases/tag/v1.0.1). See [CHANGELOG.md](CHANGELOG.md).

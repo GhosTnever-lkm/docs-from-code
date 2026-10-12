@@ -1,6 +1,6 @@
 {
   "name": "docs-from-code",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Creates or improves developer documentation grounded in current source code and repository conventions.",
   "author": {
     "name": "GhosTnever"
